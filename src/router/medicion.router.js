@@ -22,7 +22,8 @@ const {
 const {
   getInvesProducts,
   getInvesProductsId,
-  deleteInvesProducts
+  deleteInvesProducts,
+  getInvesProductsUpdate
 } = require("../controllers/invest.products.controller");
 
 // OBTENER TODOS LOS DATOS DE LA TABLA MEDICION
@@ -62,6 +63,11 @@ router.get("/investProducts/:id", async (req, res) => {
 
 router.delete("/investProducts/delete/:id", async (req, res) => {
   const query = await deleteInvesProducts(req.params.id);
+  res.json(query);
+});
+
+router.put("/investProducts/update/:id", async (req, res) => {
+  const query = await getInvesProductsUpdate(req.body);
   res.json(query);
 });
 

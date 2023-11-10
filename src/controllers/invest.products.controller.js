@@ -16,6 +16,11 @@ const deleteInvesProducts = async (id) => {
   return rta;
 };
 
+const getInvesProductsUpdate = async () => {
+  let rta = await sequelize.models.modelInvestProductosMerge.update();
+  return rta;
+};
+
 // DEBUG CONTROLLERS
 const investProductsJson = {
   Id:"1",
@@ -45,5 +50,6 @@ const createInvestProducts = async (json) => {
 module.exports = {
   getInvesProducts,
   getInvesProductsId,
-  deleteInvesProducts
+  deleteInvesProducts,
+  getInvesProductsUpdate
 };

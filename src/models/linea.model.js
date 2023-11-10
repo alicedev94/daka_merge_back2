@@ -1,10 +1,11 @@
 // TABLA EO_PERSONA- PERSONAS
 const { Sequelize, Model, DataTypes } = require("sequelize");
 
-const tableName = "dim_USUARIOS_MERGE";
-const modelName = "modelUsuariosMerge";
+const tableName = "dim_LINEA_MERGE";
+const modelName = "modelLineaMerge";
 
-const usersMergeSchema = {
+const LineaMergeSchema = {
+    
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -12,39 +13,23 @@ const usersMergeSchema = {
   },
   nombre: {
     allowNull: false,
-    type: DataTypes.STRING(70),
-  },
-  login: {
-    allowNull: true,
-    type: DataTypes.STRING(70),
-  },
-  email: {
-    allowNull: false,
     type: DataTypes.STRING(100),
   },
-  estatus: {
+  cod_sap: {
     allowNull: false,
-    type: DataTypes.STRING(50),
-  },
-  rol: {
-    allowNull: false,
-    type: DataTypes.STRING(50),
-  },
-  password: {
-    allowNull: false,
-    type: DataTypes.STRING(50),
+    type: DataTypes.STRING(20),
   },
   user_crea: {
+    allowNull: true,
     type: DataTypes.STRING(100),
-    allowNull: false,
   },
   user_mod: {
-    type: DataTypes.STRING(100),
     allowNull: true,
+    type: DataTypes.STRING(100),
   },
 };
 
-class UsersMerge extends Model {
+class MaestroLineaMerge extends Model {
   static associate() {
     // associate
   }
@@ -54,12 +39,14 @@ class UsersMerge extends Model {
       sequelize,
       tableName: tableName,
       modelName: modelName,
+      createdAt: "fec_crea",
+      updatedAt: "fec_mod"
     };
   }
 }
 
 module.exports = {
   tableName,
-  usersMergeSchema,
-  UsersMerge,
+  LineaMergeSchema,
+  MaestroLineaMerge
 };

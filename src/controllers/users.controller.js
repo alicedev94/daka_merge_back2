@@ -3,11 +3,13 @@ const sequelize = require("../config/conexion");
 const createUser = async (objectUser) => {
   let user = objectUser;
 
+
   //FORZAR A QUE DEN ERROR
   //user.id = 21;
   //----------------------
 
   // validar que el usuario no exista
+
   user.login = objectUser.email;
   user.estatus = "activo";
   user.user_crea = objectUser.nombre;
@@ -17,6 +19,7 @@ const createUser = async (objectUser) => {
 };
 
 const updateUser = async (objectUser) => {
+  console.log(objectUser);
   let rta = await sequelize.query(
     `UPDATE dim_USUARIOS_MERGE SET nombre = '${objectUser.nombre}', email = '${objectUser.email}', password = '${objectUser.password}', rol = '${objectUser.rol}' WHERE ID = ${objectUser.id}`
   );

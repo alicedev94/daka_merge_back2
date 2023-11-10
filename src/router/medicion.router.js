@@ -22,7 +22,8 @@ const {
 const {
   getInvesProducts,
   getInvesProductsId,
-  deleteInvesProducts
+  deleteInvesProducts,
+  createInvestProducts
 } = require("../controllers/invest.products.controller");
 
 // OBTENER TODOS LOS DATOS DE LA TABLA MEDICION
@@ -88,6 +89,11 @@ router.post("/medicionDiaria", async (req, res) => {
     status: "ok",
     message: "Medicion creadas",
   });
+});
+
+router.post("/investProducts/create", async (req, res) => {
+  const query = await createInvestProducts(req.body);
+  res.json(query);
 });
 
 // // ACTUAlIZAR

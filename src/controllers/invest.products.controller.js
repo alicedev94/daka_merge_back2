@@ -45,5 +45,6 @@ const createInvestProducts = async (json) => {
 module.exports = {
   getInvesProducts,
   getInvesProductsId,
-  deleteInvesProducts
+  deleteInvesProducts,
+  createInvestProducts
 };
